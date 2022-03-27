@@ -10,7 +10,8 @@ namespace RehtseStudio.JoystickWithControlPath.PlayerWithFreeLookCamera.Scripts
     {
         //Calling the Generated C# Script of the InputActions called Players_InputActions
         //The Script "Players_InputActions" is located on Assets->RehtseStudio->JoystickWithControlPath->Scripts->InputActions
-        private Players_InputActions _playerInputs;
+        
+        private PlayerInput _playerInputs;
         private InputAction _moveAction;
         
         private float _speed;
@@ -23,38 +24,21 @@ namespace RehtseStudio.JoystickWithControlPath.PlayerWithFreeLookCamera.Scripts
         private float _rotationVelocity;
 
         private Camera _mainCamera;
-
-        #region Player Input Section
-        private void OnEnable()
-        {
-            _playerInputs = new Players_InputActions();
-            _playerInputs.Enable();
-
-            _moveAction = _playerInputs.Player.Move;
-            _moveAction.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _playerInputs.Disable();
-            _moveAction.Disable();
-        }
-        #endregion
-
+        
         private void Start()
         {
-            _rigidBody = GetComponent<Rigidbody>();
-            _mainCamera = Camera.main;
-        }
+            _playerInputs = GetComponent<PlayerInput>();
+            _moveAction = _playerInputs.actions["Move"];
 
-        private void Update()
-        {
-            _moveVector = _moveAction.ReadValue<Vector2>();
+            _rigidBody = GetComponent<Rigidbody>();
+
+            _mainCamera = Camera.main;
         }
 
         private void FixedUpdate()
         {
-            
+            _moveVector = _moveAction.ReadValue<Vector2>();
+
             Movement();
         }
 

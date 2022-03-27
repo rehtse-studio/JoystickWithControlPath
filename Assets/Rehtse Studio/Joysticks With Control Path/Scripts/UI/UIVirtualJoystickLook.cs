@@ -31,7 +31,7 @@ namespace RehtseStudio.UnityNewInputSystem_VirtualJoystickAndTouchLook_ControlPa
             set => _controlPath = value;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (Input.touchCount > 0)
             {
