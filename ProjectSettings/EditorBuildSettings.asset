@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Rehtse Studio/Joysticks With Control Path/Scenes/PlayerWithFreeLookCamera.unity
     guid: 09bc71deffb11c14898bc244ee4a880a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Rehtse Studio/Joysticks With Control Path/Scenes/PlayerWithVirtualCamera.unity
     guid: 64ad5b4cc68dffc41934e1c58ed59990
   m_configObjects: {}
